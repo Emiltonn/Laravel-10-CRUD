@@ -17,23 +17,16 @@ cp .env.example .env
 Atualize as variáveis de ambiente do arquivo .env
 
 ```dosini
-APP_NAME="Especializa Ti"
-APP_URL=http://localhost:8989
+APP_NAME="Laravel_10_Crud"
+APP_URL=http://localhost:8080
 
 DB_CONNECTION=mysql
 DB_HOST=db
-DB_PORT=3306
-DB_DATABASE=laravel
+DB_PORT=3320
+DB_DATABASE=laravel_10
 DB_USERNAME=root
 DB_PASSWORD=root
 
-CACHE_DRIVER=redis
-QUEUE_CONNECTION=redis
-SESSION_DRIVER=redis
-
-REDIS_HOST=redis
-REDIS_PASSWORD=null
-REDIS_PORT=6379
 ```
 
 Suba os containers do projeto
@@ -60,5 +53,37 @@ Gerar a key do projeto Laravel
 php artisan key:generate
 ```
 
+Gerar tabelas e popular banco de dados.
+
+```sh
+php artisan migrate --seed
+```
+
 Acessar o projeto
 [http://localhost:8080](http://localhost:8080)
+
+Table: Customer
+ID (Primary Key)
+CPF (Unique)
+Name
+Birth Date
+Gender
+Address ID (Foreign Key referencing the Address table)
+
+Table: Address
+ID (Primary Key)
+Street
+Street Number
+Zip Code
+City ID (Foreign Key referencing the City table)
+
+Table: City
+ID (Primary Key)
+Name
+Acronym
+State ID (Foreign Key referencing the State table)
+
+Table: State
+ID (Primary Key)
+Name
+Acronym
