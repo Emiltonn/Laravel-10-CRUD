@@ -68,13 +68,13 @@ CPF (Unique)
 Name
 Birth Date
 Gender
-Address ID (Foreign Key referencing the Address table)
 
 Table: Address
 ID (Primary Key)
 Street
 Street Number
 Zip Code
+Customer ID (Foreign Key referencing the Customer table)
 City ID (Foreign Key referencing the City table)
 
 Table: City
@@ -88,7 +88,6 @@ ID (Primary Key)
 Name
 Acronym
 
-Falta Relacionamento 1-1 addressXcustomer
 Scribe API documentation
 CRUD CUSTOMER
 Angular Listagem

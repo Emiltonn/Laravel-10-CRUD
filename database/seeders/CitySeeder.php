@@ -15,27 +15,27 @@ class CitySeeder extends Seeder
     public function run(): void
     {
         $cities = [
-            ['name' => 'São Paulo'],
-            ['name' => 'Campinas'],
-            ['name' => 'São José dos Campos'],
-            ['name' => 'Rio de Janeiro'],
-            ['name' => 'Niterói'],
-            ['name' => 'Duque de Caxias'],
-            ['name' => 'Belo Horizonte'],
-            ['name' => 'Contagem'],
-            ['name' => 'Uberlândia'],
-            ['name' => 'Manaus'],
-            ['name' => 'Itacoatiara'],
-            ['name' => 'Parintins'],
-            ['name' => 'Porto Alegre'],
-            ['name' => 'Caxias do Sul'],
-            ['name' => 'Pelotas'],
+            ['name' => 'São Paulo', 'state_acronym' => 'SP'],
+            ['name' => 'Campinas', 'state_acronym' => 'SP'],
+            ['name' => 'São José dos Campos', 'state_acronym' => 'SP'],
+            ['name' => 'Rio de Janeiro', 'state_acronym' => 'RJ'],
+            ['name' => 'Niterói', 'state_acronym' => 'RJ'],
+            ['name' => 'Duque de Caxias', 'state_acronym' => 'RJ'],
+            ['name' => 'Belo Horizonte', 'state_acronym' => 'MG'],
+            ['name' => 'Contagem', 'state_acronym' => 'MG'],
+            ['name' => 'Uberlândia', 'state_acronym' => 'MG'],
+            ['name' => 'Manaus', 'state_acronym' => 'AM'],
+            ['name' => 'Itacoatiara', 'state_acronym' => 'AM'],
+            ['name' => 'Parintins', 'state_acronym' => 'AM'],
+            ['name' => 'Porto Alegre', 'state_acronym' => 'RS'],
+            ['name' => 'Caxias do Sul', 'state_acronym' => 'RS'],
+            ['name' => 'Pelotas', 'state_acronym' => 'RS'],
         ];
 
         foreach ($cities as $city) {
             City::create([
                 'name' => $city['name'],
-                'state_id' => State::where('acronym', $city['acronym'])->value('id')
+                'state_id' => State::where('acronym', $city['state_acronym'])->value('id')
             ]);
         }
     }

@@ -10,4 +10,9 @@ class Customer extends Model
     use HasFactory;
 
     protected $fillable = ['cpf', 'name', 'birth_date', 'gender', 'address_id'];
+
+    public function address()
+    {
+        return $this->hasOne(Address::class);
+    }
 }
