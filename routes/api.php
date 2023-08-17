@@ -10,3 +10,4 @@ Route::get('/', function () {
 });
 
 Route::get('/customers', [CustomerController::class, 'index']);
+Route::post('/customers', [CustomerController::class, 'store']);
