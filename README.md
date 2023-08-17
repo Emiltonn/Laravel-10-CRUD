@@ -87,3 +87,12 @@ Table: State
 ID (Primary Key)
 Name
 Acronym
+
+Falta Relacionamento 1-1 addressXcustomer
+Scribe API documentation
+CRUD CUSTOMER
+Angular Listagem
+Angular Exclusão
+Angular Criação
+Angular Edição
+Deploy AWS
