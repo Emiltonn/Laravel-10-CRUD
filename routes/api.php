@@ -9,5 +9,8 @@ Route::get('/', function () {
     ]);
 });
 
+
+Route::patch('/customers/{id}', [CustomerController::class, 'update']);
+Route::get('/customers/{id}', [CustomerController::class, 'show']);
 Route::get('/customers', [CustomerController::class, 'index']);
 Route::post('/customers', [CustomerController::class, 'store']);

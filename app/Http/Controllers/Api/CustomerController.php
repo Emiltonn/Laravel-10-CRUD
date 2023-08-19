@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\StoreUpdateCustomerRequest;
 use App\Http\Resources\CustomerResource;
 use App\Models\Api\Customer;
 use Illuminate\Http\Request;
@@ -30,9 +31,9 @@ class CustomerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUpdateCustomerRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated(); //pegar apenas campos validados
 
         $customer = Customer::create($data);
 
@@ -42,9 +43,11 @@ class CustomerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Customer $customer)
+    public function show(string $id)
     {
-        //
+        $customer = Customer::findOrFail($id);
+
+        return new CustomerResource($customer);
     }
 
     /**
@@ -58,9 +61,13 @@ class CustomerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Customer $customer)
+    public function update(StoreUpdateCustomerRequest $request, string $id)
     {
-        //
+        $data = $request->all();
+        $customer = Customer::findOrFail($id);
+        $customer->update($data);
+
+        return new CustomerResource($customer);
     }
 
     /**
