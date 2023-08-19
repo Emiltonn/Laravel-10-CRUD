@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\StoreUpdateCustomerRequest;
 use App\Http\Resources\CustomerResource;
+use App\Models\Api\Address;
 use App\Models\Api\Customer;
 use Illuminate\Http\Request;
 
@@ -73,8 +74,18 @@ class CustomerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Customer $customer)
+    public function destroy(string $id)
     {
-        //
+        $customer = Customer::findOrFail($id);
+        // $customer->addresses()->detach();
+        $customer->address()->delete();
+        $customer->delete();
+
+        return response()->json([], 204);
+    }
+
+    public function address()
+    {
+        return $this->hasOne(Address::class);
     }
 }

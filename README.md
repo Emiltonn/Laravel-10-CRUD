@@ -61,37 +61,3 @@ php artisan migrate --seed
 
 Acessar o projeto
 [http://localhost:8080](http://localhost:8080)
-
-Table: Customer
-ID (Primary Key)
-CPF (Unique)
-Name
-Birth Date
-Gender
-
-Table: Address
-ID (Primary Key)
-Street
-Street Number
-Zip Code
-Customer ID (Foreign Key referencing the Customer table)
-City ID (Foreign Key referencing the City table)
-
-Table: City
-ID (Primary Key)
-Name
-Acronym
-State ID (Foreign Key referencing the State table)
-
-Table: State
-ID (Primary Key)
-Name
-Acronym
-
-Scribe API documentation
-CRUD CUSTOMER
-Angular Listagem
-Angular Exclusão
-Angular Criação
-Angular Edição
-Deploy AWS

@@ -10,6 +10,7 @@ Route::get('/', function () {
 });
 
 
+Route::delete('/customers/{id}', [CustomerController::class, 'destroy']);
 Route::patch('/customers/{id}', [CustomerController::class, 'update']);
 Route::get('/customers/{id}', [CustomerController::class, 'show']);
 Route::get('/customers', [CustomerController::class, 'index']);
