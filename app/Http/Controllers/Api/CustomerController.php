@@ -11,9 +11,7 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $customers = Customer::all();
@@ -21,17 +19,6 @@ class CustomerController extends Controller
         return CustomerResource::collection($customers);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreUpdateCustomerRequest $request)
     {
         $data = $request->validated(); //pegar apenas campos validados
@@ -41,9 +28,6 @@ class CustomerController extends Controller
         return new CustomerResource($customer);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         $customer = Customer::findOrFail($id);
@@ -51,41 +35,21 @@ class CustomerController extends Controller
         return new CustomerResource($customer);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Customer $customer)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(StoreUpdateCustomerRequest $request, string $id)
     {
-        $data = $request->all();
+        $data = $request->validated(); //pegar apenas campos validados
         $customer = Customer::findOrFail($id);
         $customer->update($data);
 
         return new CustomerResource($customer);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $customer = Customer::findOrFail($id);
-        // $customer->addresses()->detach();
         $customer->address()->delete();
         $customer->delete();
 
         return response()->json([], 204);
-    }
-
-    public function address()
-    {
-        return $this->hasOne(Address::class);
     }
 }
