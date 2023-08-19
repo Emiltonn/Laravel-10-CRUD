@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Api;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -9,7 +9,7 @@ class Customer extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['cpf', 'name', 'birth_date', 'gender', 'address_id'];
+    protected $fillable = ['cpf', 'name', 'birth_date', 'gender'];
 
     public function address()
     {

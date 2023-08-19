@@ -22,9 +22,9 @@ APP_URL=http://localhost:8080
 
 DB_CONNECTION=mysql
 DB_HOST=db
-DB_PORT=3320
+DB_PORT=3306
 DB_DATABASE=laravel_10
-DB_USERNAME=root
+DB_USERNAME=emilton
 DB_PASSWORD=root
 
 ```

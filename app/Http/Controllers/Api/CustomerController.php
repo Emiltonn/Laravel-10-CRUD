@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Http\Resources\CustomerResource;
-use App\Models\Customer;
+use App\Models\Api\Customer;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -35,7 +36,7 @@ class CustomerController extends Controller
 
         $customer = Customer::create($data);
 
-        return $customer;
+        return new CustomerResource($customer);
     }
 
     /**
